@@ -34,7 +34,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(600, 200);
+  createCanvas(displayWidth,displayHeight);
   
   trex = createSprite(50,180,20,50);
   
@@ -129,6 +129,8 @@ function spawnClouds() {
     cloud.addImage(cloudImage);
     cloud.scale = 0.5;
     cloud.velocityX = -3;
+
+    camera.position.x = displayHeight/2;
     
      //assign lifetime to the variable
     cloud.lifetime = 200;
@@ -148,6 +150,8 @@ function spawnObstacles() {
     var obstacle = createSprite(600,165,10,40);
     //obstacle.debug = true;
     obstacle.velocityX = -(6 + 3*score/100);
+
+    camera.position.x = displayWidth/2;
     
     //generate random obstacles
     var rand = Math.round(random(1,6));
